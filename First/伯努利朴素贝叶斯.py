@@ -1,8 +1,8 @@
-from sklearn.tree import DecisionTreeClassifier  
-from sklearn.datasets import load_iris  
-from sklearn.model_selection import train_test_split
-from sklearn import metrics
+from sklearn.datasets import load_iris
+from sklearn.naive_bayes import BernoulliNB
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+
 
 def get_data():
     iris = load_iris()
@@ -12,10 +12,10 @@ def get_data():
 
 data,result = get_data()
 data_train,data_test,result_train,result_test = train_test_split(data,result, test_size=0.3)
-Tree = DecisionTreeClassifier()
-Tree.fit(data_train,result_train)
-pred = Tree.predict(data_test)
+
+Bernoulli = BernoulliNB()
+Bernoulli = Bernoulli.fit(data_train,result_train)
+pred = Bernoulli.predict(data_test)
 
 print(pred)
-print(result_test)
 print(accuracy_score(result_test,pred))
