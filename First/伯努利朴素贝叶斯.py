@@ -29,6 +29,7 @@ def Model():
     pred = Bernoulli.predict(data_test)
     return pred
 
+Model()
 Bernoulli = BernoulliNB()
 Bernoulli = Bernoulli.fit(data_train,result_train)
 pred = Bernoulli.predict(data_test)
